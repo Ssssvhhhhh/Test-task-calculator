@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images"/>
+    <qresource prefix="/">
+        <file>images/status_bar_contents.png</file>
+    </qresource>
+</RCC>
