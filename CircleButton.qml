@@ -8,7 +8,7 @@ Button
     property color normalColor: "#B0D1D8"
     property color pressedColor: "#04BFAD"
     property color textColor: "#024873"
-    property int fontSize: 20
+    property int fontSize: 24
     property bool bold: true
 
     Layout.minimumWidth: 50
@@ -29,6 +29,7 @@ Button
     {
         anchors.fill: parent
         text: root.text
+        font.family: "Open Sans"
         font.pixelSize: root.fontSize
         font.bold: root.bold
         horizontalAlignment: Text.AlignHCenter

@@ -28,7 +28,7 @@ qt_add_qml_module(appCalc
 qt_add_resources(appCalc "Resources"
     PREFIX "/"
     FILES
-        images/status_bar_contents.png
+        images/status_bar_contents.png images/bkt.png images/division.png images/equal.png images/minus.png images/multiplication.png  images/percent.png images/plus.png images/plus_minus.png
 
 )
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

@@ -6,11 +6,11 @@ Window
 {
     id: root
     width: 300
-    height: 480
+    height: 500
     minimumWidth: 300
-    minimumHeight: 480
+    minimumHeight: 500
     maximumWidth: 300
-    maximumHeight: 480
+    maximumHeight: 500
     visible: true
     title: qsTr("Calculator")
     color: "#024873"
@@ -28,7 +28,7 @@ Window
         x: 0
         y: 0
         width: 300
-        height: 24
+        height: 19
         color: "#1abc9c"
 
         Image
@@ -88,30 +88,43 @@ Window
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.rightMargin: 16
-                        spacing: 6
+                        spacing: 1
 
                         Text
                         {
                             id: expressionLabel
                             text: calculator.expression
                             anchors.right: parent.right
+
+                            font.family: "Open Sans"
                             font.pixelSize: 20
                             color: "white"
+                            font.letterSpacing: 0.5
+                            anchors.topMargin: 10
                             clip: true
 
                         }
 
-                        Text
-                        {
+                        Text {
                             id: resultLabel
                             text: calculator.result
                             anchors.right: parent.right
-                            font.pixelSize: 36
-                            font.bold: true
-                            color: "white"
-                            clip: true
 
+                            font.family: "Open Sans"
+                            font.pixelSize: 50
+                            color: "white"
+
+                            lineHeight: 60
+                            lineHeightMode: Text.FixedHeight
+
+                            font.letterSpacing: 0.5
+
+                            horizontalAlignment: Text.AlignRight
+                            verticalAlignment: Text.AlignVCenter
+
+                            clip: true
                         }
+
                     }
                 }
 
@@ -128,25 +141,144 @@ Window
                         rowSpacing: 8
                         columnSpacing: 8
 
-                        CircleSymbolButton { text: "()"; normalColor: "#0889A6"; onClicked: calculator.appendParentheses() }
-                        CircleSymbolButton { text: "+/-"; normalColor: "#0889A6"; onClicked: calculator.changeArithmeticSign() }
-                        CircleSymbolButton { text: "%"; normalColor: "#0889A6"; onClicked: calculator.toPercent() }
-                        CircleSymbolButton { text: "÷"; normalColor: "#0889A6"; onClicked: calculator.appendSymbol("/") }
+                        CircleSymbolButton {
+                            normalColor: "#0889A6"
+                            onClicked: calculator.appendParentheses()
+
+                            contentItem: Item {
+                                anchors.fill: parent
+
+                                Image {
+                                    source: "qrc:images/bkt.png"
+                                    anchors.centerIn: parent
+                                    fillMode: Image.PreserveAspectFit
+                                    width: parent.width * 0.5
+                                    height: parent.height * 0.5
+                                }
+                            }
+                        }
+                        CircleSymbolButton {
+                            normalColor: "#0889A6"
+                            onClicked: calculator.changeArithmeticSign()
+
+                            contentItem: Item {
+                                anchors.fill: parent
+
+                                Image {
+                                    source: "qrc:images/plus_minus.png"
+                                    anchors.centerIn: parent
+                                    fillMode: Image.PreserveAspectFit
+                                    width: parent.width * 0.5
+                                    height: parent.height * 0.5
+                                }
+                            }
+                        }
+
+
+                        CircleSymbolButton {
+                            normalColor: "#0889A6"
+                            onClicked: calculator.toPercent()
+
+                            contentItem: Item {
+                                anchors.fill: parent
+
+                                Image {
+                                    source: "qrc:images/percent.png"
+                                    anchors.centerIn: parent
+                                    fillMode: Image.PreserveAspectFit
+                                    width: parent.width * 0.5
+                                    height: parent.height * 0.5
+                                }
+                            }
+                        }
+
+
+
+                        CircleSymbolButton {
+                            normalColor: "#0889A6"
+                            onClicked: calculator.appendSymbol("/")
+
+                            contentItem: Item {
+                                anchors.fill: parent
+
+                                Image {
+                                    source: "qrc:images/division.png"
+                                    anchors.centerIn: parent
+                                    fillMode: Image.PreserveAspectFit
+                                    width: parent.width * 0.5
+                                    height: parent.height * 0.5
+                                }
+                            }
+                        }
+
 
                         CircleButton { text: "7"; normalColor: "#B0D1D8"; onClicked: calculator.appendSymbol("7") }
                         CircleButton { text: "8"; normalColor: "#B0D1D8"; onClicked: calculator.appendSymbol("8") }
                         CircleButton { text: "9"; normalColor: "#B0D1D8"; onClicked: calculator.appendSymbol("9") }
-                        CircleSymbolButton { text: "×"; normalColor: "#0889A6"; onClicked: calculator.appendSymbol("*") }
+
+                        CircleSymbolButton {
+                            normalColor: "#0889A6"
+                            onClicked: calculator.appendSymbol("*")
+
+                            contentItem: Item {
+                                anchors.fill: parent
+
+                                Image {
+                                    source: "qrc:images/multiplication.png"
+                                    anchors.centerIn: parent
+                                    fillMode: Image.PreserveAspectFit
+                                    width: parent.width * 0.5
+                                    height: parent.height * 0.5
+                                }
+                            }
+                        }
+
+
 
                         CircleButton { text: "4"; normalColor: "#B0D1D8"; onClicked: calculator.appendSymbol("4") }
                         CircleButton { text: "5"; normalColor: "#B0D1D8"; onClicked: calculator.appendSymbol("5") }
                         CircleButton { text: "6"; normalColor: "#B0D1D8"; onClicked: calculator.appendSymbol("6") }
-                        CircleSymbolButton { text: "−"; normalColor: "#0889A6"; onClicked: calculator.appendSymbol("-") }
+
+                        CircleSymbolButton {
+                            normalColor: "#0889A6"
+                            onClicked: calculator.appendSymbol("-")
+
+                            contentItem: Item {
+                                anchors.fill: parent
+
+                                Image {
+                                    source: "qrc:images/minus.png"
+                                    anchors.centerIn: parent
+                                    fillMode: Image.PreserveAspectFit
+                                    width: parent.width * 0.5
+                                    height: parent.height * 0.5
+                                }
+                            }
+                        }
 
                         CircleButton { text: "1"; normalColor: "#B0D1D8"; onClicked: calculator.appendSymbol("1") }
                         CircleButton { text: "2"; normalColor: "#B0D1D8"; onClicked: calculator.appendSymbol("2") }
                         CircleButton { text: "3"; normalColor: "#B0D1D8"; onClicked: calculator.appendSymbol("3") }
-                        CircleSymbolButton { text: "+"; normalColor: "#0889A6"; onClicked: calculator.appendSymbol("+") }
+
+                        CircleSymbolButton {
+                            normalColor: "#0889A6"
+                            onClicked: calculator.appendSymbol("+")
+
+                            contentItem: Item {
+                                anchors.fill: parent
+
+                                Image {
+                                    source: "qrc:images/plus.png"
+                                    anchors.centerIn: parent
+                                    fillMode: Image.PreserveAspectFit
+                                    width: parent.width * 0.5
+                                    height: parent.height * 0.5
+                                }
+                            }
+                        }
+
+
+
 
                         CircleButton { text: "C"; normalColor: "pink"; textColor: "white"; pressedColor: "red"; onClicked: calculator.clear() }
                         CircleButton { text: "0"; normalColor: "#B0D1D8"; onClicked: calculator.appendSymbol("0") }
@@ -154,8 +286,15 @@ Window
 
                         CircleSymbolButton {
                             id: equalButton
-                            text: "="
                             normalColor: "#0889A6"
+
+                            Image {
+                                source: "qrc:images/equal.png"
+                                anchors.centerIn: parent
+                                fillMode: Image.PreserveAspectFit
+                                width: parent.width * 0.5
+                                height: parent.height * 0.5
+                            }
 
                             Timer {
                                 id: longPressTimer
